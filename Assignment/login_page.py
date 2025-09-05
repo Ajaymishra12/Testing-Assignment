@@ -1,0 +1,22 @@
+from time import sleep
+from selenium import webdriver
+opts = webdriver.ChromeOptions()
+opts.add_experimental_option("detach", True)
+driver = webdriver.Chrome(options=opts)
+
+driver.get('https://itassetmanagementsoftware.com/rolepermission/admin/login')
+driver.maximize_window()
+driver.find_element('name',"username").send_keys('Ajay1234')
+sleep(5)
+driver.find_element('id',"btnContinue").click()
+sleep(2)
+driver.find_element("xpath",'//a[text()="Forgot password?"]').click()
+driver.find_element('id',"email").send_keys('ajay@123gmail.com')
+driver.find_element('id',"btnSubmit").click()
+sleep(2)
+driver.find_element("xpath",'//a[text()="I already know credential"]').click()
+sleep(3)
+driver.back()
+sleep(3)
+driver.find_element("xpath",'//a[text()="Contact Us"]').click()
+driver.refresh()
